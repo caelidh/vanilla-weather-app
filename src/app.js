@@ -1,3 +1,42 @@
+let now = new Date();
+console.log(now);
+let today = now.getDate();
+let days = ["Sunday",
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday"]
+let day = days[now.getDay()];
+let year = now.getFullYear();
+let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  let month = months[now.getMonth()];
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+
+  let currentDate = document.querySelector("#date");
+  currentDate.innerHTML = `${day} ${month} ${today} ${year} ${hours}:${minutes}`
+
 function showTemperature (response) {
    let temperatureElement = document.querySelector("#temperature-number");
     let cityElement = document.querySelector("#city-name");
