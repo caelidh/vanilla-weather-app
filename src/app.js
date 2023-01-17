@@ -56,12 +56,21 @@ function showTemperature (response) {
     
 }
 
+function searchCity(city) {
+    let apiKey = "717511f5e1c0dbfc617f361ab073e2e9"; 
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}}&appid=${apiKey}&units=imperial`; 
+    axios.get(apiUrl).then(showTemperature);
+}
+
+function submitLocation(event) {
+    event.preventDefault();
+    let city = document.querySelector("#city-input").value;
+    searchCity(city);
+}
+
+let form = document.querySelector("#enter-button");
+form.addEventListener("click", submitLocation)
 
 
 
-let apiKey = "717511f5e1c0dbfc617f361ab073e2e9";
-let city = "Eureka"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}}&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(showTemperature);
-
-search("Eureka")
+searchCity("Eureka")
