@@ -14,35 +14,33 @@
 <div class="weather-app-wrapper">
     <form class="row g-3">
         <div class="col-auto">
-          <input type="location" class="form-control" id="inputCity" placeholder="Enter a city...">
+          <input type="location" class="form-control" id="city-input" placeholder="Enter a city...">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Enter</button>
-          <button type="submit" class="btn btn-primary mb-3">Current Location</button>
+          <button type="search" class="btn btn-primary mb-3" id="enter-button">Enter</button>
         </div>
       </form>
-<h1 id="city-input">Eureka</h1>
+<h1 id="city-name">Eureka</h1>
     <ul>
-    <li>Monday 12:00 AM</li>
-    <li>Mostly cloudy</li>
+    <li id="date"> </li>
+    <li id="weather-description">Mostly cloudy</li>
 </ul>
 <div class="row">
-<div class="col-md-6 temp-size">
-<img src ="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="clear" />
+<div class="col-md-6 temp-size" id="temperature-display">
+<img src ="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="clear" id="icon" />
 41 °F | °C
 </div>
 <div class="col-md-6">
     <ul>
-        <li>Precipitation: 22%</li>
-        <li>Humidity: 100%</li>
-        <li>Wind: 3 mph</li>
+        <li>Humidity: <span id="humidity">100</span>%</li>
+        <li>Wind:<span id="wind"> 3</span> mph</li>
     </ul>
 </div>
 </div>
 
 </div>
 <small>
-    <link href="https://github.com/caelidh/vanilla-weather-app">Open source code</a> by Caelidh Liddell, hosted by <link href="https://playful-eclair-b0a0d1.netlify.app/">Netlify</a>
+    <a href="https://github.com/caelidh/vanilla-weather-app">Open source code</a> by Caelidh Liddell, hosted by <a href="https://playful-eclair-b0a0d1.netlify.app/">Netlify</a>
 </small>
 </div>
 </body>
