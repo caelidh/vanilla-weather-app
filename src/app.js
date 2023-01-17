@@ -46,7 +46,7 @@ function showTemperature (response) {
     let iconElement = document.querySelector("#icon");
 
 
-temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.main.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -55,6 +55,9 @@ temperatureElement.innerHTML = Math.round(response.data.main.temp);
     iconElement.setAttribute("alt", response.data.weather[0].description);
     
 }
+
+
+
 
 let apiKey = "717511f5e1c0dbfc617f361ab073e2e9";
 let city = "Eureka"

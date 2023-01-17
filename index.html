@@ -14,16 +14,24 @@
 <div class="weather-app-wrapper">
     <form class="row g-3">
         <div class="col-auto">
-          <input type="location" class="form-control" id="city-input" placeholder="Enter a city..." autocomplete="off" autofocus="on">
+          <input type="location"
+            class="form-control" 
+            id="city-input" 
+            placeholder="Enter a city..." 
+            autocomplete="off" 
+            autofocus="on">
         </div>
         <div class="col-auto">
-          <button type="search" class="btn btn-primary mb-3" id="enter-button">Enter</button>
+          <input type="submit" 
+          value="search" 
+          class="btn btn-primary mb-3" 
+          id="enter-button">
         </div>
       </form>
 <h1 id="city-name"> </h1>
     <ul>
     <li id="date"> </li>
-    <li id="description"> </li>
+    <li> <span id="description"> </span></li>
 </ul>
 <div class="row">
 <div class="col-md-6 temp-size">
