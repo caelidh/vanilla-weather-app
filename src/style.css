@@ -26,6 +26,11 @@ line-height: 20px;
 margin-bottom: 5px;
 ;}
 
+li #description {
+  text-transform: capitalize;
+
+}
+
 .weather-app-wrapper {
   border: 0px #9AA0A5 solid;
   border-radius: 20px; 
@@ -41,6 +46,7 @@ margin-bottom: 5px;
 .weather-units .active {
   cursor: default;
   color: black;
+  text-decoration: none;
 
 }
 
