@@ -14,26 +14,27 @@
 <div class="weather-app-wrapper">
     <form class="row g-3">
         <div class="col-auto">
-          <input type="location" class="form-control" id="city-input" placeholder="Enter a city...">
+          <input type="location" class="form-control" id="city-input" placeholder="Enter a city..." autocomplete="off" autofocus="on">
         </div>
         <div class="col-auto">
           <button type="search" class="btn btn-primary mb-3" id="enter-button">Enter</button>
         </div>
       </form>
-<h1 id="city-name">Eureka</h1>
+<h1 id="city-name"> </h1>
     <ul>
     <li id="date"> </li>
-    <li id="weather-description">Mostly cloudy</li>
+    <li id="description"> </li>
 </ul>
 <div class="row">
-<div class="col-md-6 temp-size" id="temperature-display">
+<div class="col-md-6 temp-size">
 <img src ="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="clear" id="icon" />
-41 °F | °C
+<span id="temperature-number"> </span>
+°F | °C
 </div>
 <div class="col-md-6">
     <ul>
-        <li>Humidity: <span id="humidity">100</span>%</li>
-        <li>Wind:<span id="wind"> 3</span> mph</li>
+        <li>Humidity: <span id="humidity"> </span>%</li>
+        <li>Wind: <span id="wind"> </span> mph</li>
     </ul>
 </div>
 </div>
