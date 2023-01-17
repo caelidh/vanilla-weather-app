@@ -37,6 +37,29 @@ let months = [
   let currentDate = document.querySelector("#date");
   currentDate.innerHTML = `${day} ${month} ${today} ${year} ${hours}:${minutes}`
 
+function showForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+let forecastHTML =  `<div class="row>`;
+forecastHTML = forecastHTML + `
+    <div class="col-2">
+        <div class="weather-forecast-date">
+            Tuesday</div>
+            <img src ="" id="icon" />
+        
+    </div>
+        <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-temperature-max">40°</span>
+            <span class="weather-forecast-temperature-min">30°</span>
+        </div>
+    </div>`;
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+   
+}
+
+
 function showTemperature (response) {
    let temperatureElement = document.querySelector("#temperature-number");
     let cityElement = document.querySelector("#city-name");
@@ -44,6 +67,8 @@ function showTemperature (response) {
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
     let iconElement = document.querySelector("#icon");
+
+
 
     fahrenheitTemperature = Math.round(response.data.main.temp);
 
@@ -98,3 +123,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 searchCity("Eureka")
+showForecast();
