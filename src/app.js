@@ -45,6 +45,7 @@ function showTemperature (response) {
     let windElement = document.querySelector("#wind");
     let iconElement = document.querySelector("#icon");
 
+    fahrenheitTemperature = Math.round(response.data.main.temp);
 
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
@@ -55,7 +56,6 @@ function showTemperature (response) {
     iconElement.setAttribute("alt", response.data.weather[0].description);
     
 }
-
 
 function searchCity(city) {
     let apiKey = "717511f5e1c0dbfc617f361ab073e2e9"; 
@@ -69,9 +69,32 @@ function submitLocation(event) {
     searchCity(city);
 }
 
+function convertToCelsius(event) {
+    event.preventDefault();
+let celsiusTemperature = (fahrenheitTemperature - 32) * 5/9;
+celsiusLink.classList.add("active");
+fahrenheitLink.classList.remove("active");
+let temperatureElement = document.querySelector("#temperature-number");
+temperatureElement.innerHTML = Math.round(celsiusTemperature)
+}
+
+function convertToFahrenheit(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature-number");
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
+temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
 let form = document.querySelector("#enter-button");
 form.addEventListener("click", submitLocation)
 
+let fahrenheitTemperature = null;
 
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius)
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 searchCity("Eureka")

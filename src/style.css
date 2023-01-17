@@ -33,3 +33,18 @@ margin-bottom: 5px;
   margin-top: 50px;
   background-color: white;
 }
+
+.weather-units {
+  text-decoration: none;
+}
+
+.weather-units .active {
+  cursor: default;
+  color: black;
+
+}
+
+.weather-units .active:hover {
+  cursor: default;
+  text-decoration: none;
+}
