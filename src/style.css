@@ -58,7 +58,7 @@ li #description {
 
 .weather-forecast{
 margin-top: 20px;
-}
+text-align: center;}
 
 .weather-forecast-date {
   font-size: 16px;
@@ -67,4 +67,12 @@ margin-top: 20px;
 
 .weather-forecast-temperatures {
 font-size: 13px;
+}
+
+.weather-forecast-temperatures .weather-forecast-temperature-max {
+  opacity: 0.8;
+}
+
+.weather-forecast-temperatures .weather-forecast-temperature-min{
+  opacity: 0.6;
 }
