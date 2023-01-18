@@ -38,26 +38,37 @@ let months = [
   currentDate.innerHTML = `${day} ${month} ${today} ${year} ${hours}:${minutes}`
 
 
+function formatDate(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[day];
+}
 
 
-function showForecast() {
-
+function showForecast(response) {
+let dailyForecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
 
 
 let forecastHTML =  `<div class="row">`;
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-days.forEach(function(day){
+
+dailyForecast.forEach(function(dailyForecast){
  forecastHTML = forecastHTML + `
     <div class="col-2">
         <div class="weather-forecast-date">
-            ${day} </div>
-            <img src ="" id="icon" />
+            ${formatDate(dailyForecast.dt)} </div>
+            <img src ="http://openweathermap.org/img/wn/${
+                dailyForecast.weather[0].icon
+              }@2x.png"
+              alt=""
+              width="42" />
         
     </div>
         <div class="weather-forecast-temperatures">
-            <span class="weather-forecast-temperature-max">60°</span>
-            <span class="weather-forecast-temperature-min">50°</span>
+            <span class="weather-forecast-temperature-max">${Math.round(dailyForecast.temp.max)}°</span>
+            <span class="weather-forecast-temperature-min">${Math.round(dailyForecast.temp.min)}°</span>
         </div>
     </div>`;   
 })
@@ -141,4 +152,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 searchCity("Eureka");
-showForecast();
+
