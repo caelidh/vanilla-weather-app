@@ -37,26 +37,41 @@ let months = [
   let currentDate = document.querySelector("#date");
   currentDate.innerHTML = `${day} ${month} ${today} ${year} ${hours}:${minutes}`
 
+
+
+
 function showForecast() {
+
     let forecastElement = document.querySelector("#forecast");
 
-let forecastHTML =  `<div class="row>`;
-forecastHTML = forecastHTML + `
+
+let forecastHTML =  `<div class="row">`;
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+days.forEach(function(day){
+ forecastHTML = forecastHTML + `
     <div class="col-2">
         <div class="weather-forecast-date">
-            Tuesday</div>
+            ${day} </div>
             <img src ="" id="icon" />
         
     </div>
         <div class="weather-forecast-temperatures">
-            <span class="weather-forecast-temperature-max">40°</span>
-            <span class="weather-forecast-temperature-min">30°</span>
+            <span class="weather-forecast-temperature-max">60°</span>
+            <span class="weather-forecast-temperature-min">50°</span>
         </div>
-    </div>`;
+    </div>`;   
+})
+
+
 
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
-   
+   ;
+}
+
+function getForecast(coordinates){
+    console.log(coordinates)
+    let apiKey = "717511f5e1c0dbfc617f361ab073e2e9"; 
 }
 
 
@@ -79,7 +94,7 @@ function showTemperature (response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
-    
+
 }
 
 function searchCity(city) {
@@ -122,5 +137,5 @@ celsiusLink.addEventListener("click", convertToCelsius)
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-searchCity("Eureka")
+searchCity("Eureka");
 showForecast();
