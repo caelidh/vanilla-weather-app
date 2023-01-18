@@ -70,8 +70,10 @@ forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates){
-    console.log(coordinates)
-    let apiKey = "717511f5e1c0dbfc617f361ab073e2e9"; 
+    let apiKey = "50fa4024e3b1d5eac2f51ab18a47e997"
+    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial
+    `;
+    axios.get(apiUrl).then(showForecast);
 }
 
 
@@ -95,10 +97,11 @@ function showTemperature (response) {
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
 
+    getForecast(response.data.coord);
 }
 
 function searchCity(city) {
-    let apiKey = "717511f5e1c0dbfc617f361ab073e2e9"; 
+    let apiKey = "50fa4024e3b1d5eac2f51ab18a47e997"; 
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`; 
     axios.get(apiUrl).then(showTemperature);
 }
