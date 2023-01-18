@@ -35,7 +35,7 @@ let months = [
   }
 
   let currentDate = document.querySelector("#date");
-  currentDate.innerHTML = `${day} ${month} ${today} ${year} ${hours}:${minutes}`
+  currentDate.innerHTML = `${day} ${month} ${today}, ${year} ${hours}:${minutes}`
 
 
 function formatDate(timestamp) {
@@ -44,6 +44,7 @@ function formatDate(timestamp) {
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     return days[day];
+
 }
 
 
@@ -92,6 +93,7 @@ function showTemperature (response) {
    let temperatureElement = document.querySelector("#temperature-number");
     let cityElement = document.querySelector("#city-name");
     let descriptionElement = document.querySelector("#description");
+    let feelsLikeElement = document.querySelector("#feels-like");
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
     let iconElement = document.querySelector("#icon");
@@ -103,6 +105,7 @@ function showTemperature (response) {
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
+    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
